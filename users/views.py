@@ -4,7 +4,7 @@ from .forms import CustomLoginForm
 # forms registro
 from django.shortcuts import render, redirect
 from django.contrib.auth import login
-from .forms import CustomUserCreationForm
+
 
 class CustomLoginView(LoginView):
     template_name = 'login.html' 
