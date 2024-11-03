@@ -2,12 +2,7 @@
 {% block content %}
     <h1>Home</h1>
     <p>Bienvenido a la página de inicio</p>
-    {% if user.is_authenticated %}
-        <a href="/logout" class="btn btn-primary">Cerrar sesión</a>
-    {% else %}
-        <a href="/login" class="btn btn-primary">Iniciar sesión</a>
-        <a href="/registro" class="btn btn-primary">Registrarse</a>
-    {% endif %}
+    
 
     {% if user.is_authenticated %}
 
@@ -58,7 +53,7 @@
         <hr>
       </div>
     {% else %}
-
+        
     {% endif %}
 
 {% endblock content %}
