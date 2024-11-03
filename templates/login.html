@@ -1,32 +1,36 @@
 {% extends 'base.html' %}
 
 {% block content %}
+    <div class="top-bar">
+        Habbitrack
+    </div>
+
     <div class="container-fluid login-container">
         <div class="login-box">
-        <h2 class="text-center mb-4">Iniciar Sesión</h2>
-        <form action="post">
-            {% csrf_token %}
-            <!-- {{ form.as_p }} -->
+            <h2 class="text-center mb-4">Iniciar Sesión</h2>
+            <form>
+                <!-- Campo de correo -->
+                <div class="mb-3">
+                    <label for="email" class="form-label">Correo Electrónico</label>
+                    <input type="email" class="form-control" id="email" placeholder="nombre@ejemplo.com" required>
+                </div>
 
-            <div class="form-group mb-3">
-                {{ form.username.label_tag }}
-                {{ form.username }}
-            </div>
-            <div class="form-group mb-3">
-                {{ form.password.label_tag }}
-                {{ form.password }}
-            </div>
-            
-            <input type="checkbox" class="form-check-input" id="remember">
-            <label class="form-check-label" for="remember">Recordarme</label>
-            <a href="/password_reset" class="float-end">¿Olvidaste tu contraseña?</a>
-            <button type="submit" class="btn btn-primary w-100" >Iniciar sesión</button>
-            <a href="/registro" class="btn btn-primary w-100">¿Aún no tienes cuenta?</a>
-        </form>
-        
-              
-            </div>
-          </div>
+                <!-- Campo de contraseña -->
+                <div class="mb-3">
+                    <label for="password" class="form-label">Contraseña</label>
+                    <input type="password" class="form-control" id="password" placeholder="Contraseña" required>
+                </div>
 
+                <!-- Checkbox "Recordarme" -->
+                <div class="mb-3 form-check">
+                    <input type="checkbox" class="form-check-input" id="remember">
+                    <label class="form-check-label" for="remember">Recordarme</label>
+                </div>
+
+                <!-- Botón de enviar -->
+                <button type="submit" class="btn btn-primary w-100">Iniciar Sesión</button>
+            </form>
+        </div>
+    </div>
     
 {% endblock content %}

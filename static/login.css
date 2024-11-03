@@ -1,0 +1,33 @@
+.top-bar {
+    background-color: #D9D9D9; /* Color de fondo de la barra */
+    width: 100%; /* Ocupa todo el ancho de la pantalla */
+    height: 50px; /* Altura pequeña para la barra */
+    display: flex;
+    justify-content: center; /* Centra horizontalmente el contenido */
+    align-items: center; /* Centra verticalmente el contenido */
+    position: fixed; /* Fija la barra en la parte superior */
+    top: 0; /* Barra pegada a la parte superior */
+    left: 0;
+    z-index: 1000; /* Asegura que esté por encima del contenido */
+    font-size: 24px; /* Tamaño del texto */
+    font-weight: bold; /* Hace el texto en negrita */
+    font-family: font-family: "Montserrat", sans-serif;
+}
+
+.login-container {
+    height: 100vh; /* Ocupa toda la altura de la pantalla */
+    display: flex;
+    justify-content: center; /* Centra horizontalmente */
+    align-items: center; /* Centra verticalmente */
+    background-color: #1B2D39;
+}
+
+.login-box {
+    width: 100%;
+    max-width: 400px; /* Limita el ancho máximo del formulario */
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 10px; /* Bordes redondeados */
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); /* Sombra alrededor del cuadro */
+    background-color: #ffffff;
+}
