@@ -17,7 +17,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from users.views import CustomLoginView,home,register,CustomLogoutView
-
+# from habits.views import crear_habito, dashboard
 urlpatterns = [
     path("admin/", admin.site.urls),
     path('login/', CustomLoginView.as_view(), name='login'),
@@ -25,5 +25,5 @@ urlpatterns = [
     path("", home, name="home"),
     path("register/", register, name="register"),
     path("logout/", CustomLogoutView.as_view(), name="logout"),
-
+    
 ]
