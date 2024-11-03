@@ -4,10 +4,11 @@
     <div class="container-fluid login-container">
         <div class="login-box">
         <h2 class="text-center mb-4">Iniciar Sesión</h2>
-        <form action="post">
+        <form method="post">
             {% csrf_token %}
             <!-- {{ form.as_p }} -->
 
+            <div class="form-group mb-3">
             <div class="form-group mb-3">
                 {{ form.username.label_tag }}
                 {{ form.username }}
@@ -20,8 +21,8 @@
             <input type="checkbox" class="form-check-input" id="remember">
             <label class="form-check-label" for="remember">Recordarme</label>
             <a href="/password_reset" class="float-end">¿Olvidaste tu contraseña?</a>
-            <button type="submit" class="btn btn-primary w-100" >Iniciar sesión</button>
-            <a href="/registro" class="btn btn-primary w-100">¿Aún no tienes cuenta?</a>
+            <input class="submit-button btn btn-primary" id="submit" name="submit" type="submit" value="Iniciar sesion">
+            <a href="/register" class="btn btn-primary w-100">¿Aún no tienes cuenta?</a>
         </form>
         
               

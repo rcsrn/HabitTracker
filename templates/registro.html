@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<form class="form" method="POST">
+    {% csrf_token %}
+    
+    <label for="username">Username:</label>
+        {{ form.username }}
+        {{ form.username.errors }}
+    <label for="email">E-mail:</label>
+        {{ form.email }}
+        {{ form.email.errors }}
+    <label for="password1">Contraseña:</label>
+        {{ form.password1 }}
+        {{ form.password1.errors }}
+    <label for="password2">Confirme su Contraseña:</label>
+        {{ form.password2 }}
+        {{ form.password2.errors }}
+
+    <input class="submit-button btn-primary" id="submit" name="submit" type="submit" value="Registrarse">
+    <a href="/login" class="btn btn-primary">¿Ya tienes cuenta?</a>    
+        
+    </form>
+{% endblock content %}

@@ -5,25 +5,36 @@ from .forms import CustomLoginForm
 from django.shortcuts import render, redirect
 from django.contrib.auth import login
 from .forms import CustomUserCreationForm
+from django.views.generic import CreateView
+from django.contrib.auth import login, authenticate
+from django.contrib.auth.models import User
+from django.contrib.auth import logout
 
 
 class CustomLoginView(LoginView):
     template_name = 'login.html' 
     form=CustomLoginForm
-class CustomLogoutView(LogoutView):
-    next_page = 'home'
+
+
+def logout_view(request):
+    logout(request)
+    return render(request, 'home.html')
 
 def home(request):
     return render(request, 'home.html')
 
-def register(request):
-    if request.method == 'POST':
-        form = CustomUserCreationForm(request.POST)
-        if form.is_valid():
-            user = form.save()
-            login(request, user)  
-            return redirect('home') 
-    else:
-        form = CustomUserCreationForm()
-    
-    return render(request, 'register.html', {'form': form})
+class registro(CreateView):
+    model = User
+    form_class = CustomUserCreationForm
+    template_name = "registro.html"
+
+    def form_valid(self, form):
+        '''
+        En esta parte, si el form es valido lo guardamos y usamos authenticate e iniciamos sesión
+        '''
+        form.save()
+        usuario = form.cleaned_data.get('username')
+        password = form.cleaned_data.get('password1')
+        usuario = authenticate(username=usuario,password=password)
+        login(self.request, usuario)
+        return redirect('/')
