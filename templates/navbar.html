@@ -1,22 +1,17 @@
+{% load static %}
 
-
-<nav class="navbar navbar-expand-lg bg-body-tertiary">
+  <nav class="navbar navbar-expand-lg bg-body-tertiary">
     <div class="container-fluid">
-      <!-- <a class="navbar-brand" href="#">Habit Trabbit</a> -->
-       <div class="navbar-brand">Habit Trabbit</div>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-        <div class="navbar-nav">
-          <a class="nav-link active" aria-current="page" href="#"><span class="navbar-toggler-icon"></span> </a>
-          {% if user.is_authenticated %}
-            <a href="/logout" class="btn btn-primary">Cerrar sesión</a>
-          {% else %}
-            <a href="/login" class="btn btn-primary">Iniciar sesión</a>
-            <a href="/registro" class="btn btn-primary">Registrarse</a>
-          {% endif %}
-        </div>
-      </div>
+      <a class="navbar-brand" href="/">
+        <img src="{% static 'habit_trabit_logo.webp' %}" alt="" id="logo">
+      </a>
     </div>
   </nav>
+
+  <style>
+    #logo{
+      border-radius: 50%;
+      width: 100px;
+      height: 100px;
+    }
+  </style>

@@ -1,8 +1,10 @@
+
 {% extends 'base.html' %}
+
+{% load static %}
+
 {% block content %}
-    <h1>Home</h1>
-    <p>Bienvenido a la página de inicio</p>
-    
+
 
     {% if user.is_authenticated %}
 
@@ -52,8 +54,68 @@
         </ul>
         <hr>
       </div>
-    {% else %}
-        
-    {% endif %}
+      {% else %}
+      
+      {% endif %}
 
-{% endblock content %}
+      <div class="container-fluid top">
+
+          <div class="container-fluid left">
+              <h1>
+                  Habbit Trabbit tu aplicación de confianza
+              </h1>
+                
+                <img src="{% static 'dashboard.jpg' %}" alt="" id="main-image">
+            </div>
+            
+            <div class="container-fluid right">
+                <h1>    
+                    Bienvenido a Habit Trabbit
+                </h1>
+                
+                <button class="btn btn-primary bienvenida">
+                    Iniciar Sesión
+                </button>
+                
+                <button class="btn btn-primary bienvenida">
+                    Registrarse
+                </button>
+            </div>
+        </div>
+      
+      <style>
+        .right{
+            width: 50%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .left{
+            width: 50%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .top{
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+        } 
+
+        .bienvenida{
+            width: 50%;
+            margin-top: 0.5rem;
+        }
+
+
+        #main-image {
+            width: 95%;
+        }
+      </style>
+
+      {% endblock content %}
