@@ -1,4 +1,4 @@
-.top-bar { 
+.top-bar {
     background-color: #D9D9D9; /* Color de fondo de la barra */
     width: 100%; /* Ocupa todo el ancho de la pantalla */
     height: 50px; /* Altura pequeña para la barra */
@@ -11,23 +11,30 @@
     z-index: 1000; /* Asegura que esté por encima del contenido */
     font-size: 24px; /* Tamaño del texto */
     font-weight: bold; /* Hace el texto en negrita */
-    font-family: font-family: "Montserrat", sans-serif;
+    font-family: 'Montserrat', sans-serif; /* Aplicar la fuente Montserrat */
 }
 
-.login-container {
+    /* Clase personalizada para cambiar el color de fondo */
+.register-container {
     height: 100vh; /* Ocupa toda la altura de la pantalla */
     display: flex;
     justify-content: center; /* Centra horizontalmente */
     align-items: center; /* Centra verticalmente */
-    background-color: #1B2D39;
+    background-color: #1B2D39; /* Color de fondo personalizado */
+    padding-top: 70px; /* Añadir espacio para que el formulario no se superponga con la barra */
 }
 
-.login-box {
+.register-box {
     width: 100%;
     max-width: 400px; /* Limita el ancho máximo del formulario */
     padding: 20px;
-    border: 1px solid #ddd;
     border-radius: 10px; /* Bordes redondeados */
+    background-color: #fff; /* Fondo blanco del cuadro de registro */
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); /* Sombra alrededor del cuadro */
-    background-color: #ffffff;
+}
+
+    /* Cambiar el color del texto en el cuadro de registro */
+.register-box h2,
+.register-box p {
+    color: #333; /* Color del texto dentro del cuadro */
 }
