@@ -21,6 +21,25 @@ class CustomUserCreationForm(UserCreationForm):
             'password2',
         )
     
+    username = forms.CharField(widget=forms.TextInput(attrs={
+        'class': 'form-control',  
+        'placeholder': 'Nombre de usuario'  
+    }))
+    
+    email = forms.CharField(widget=forms.EmailInput(attrs={
+        'class': 'form-control', 
+        'placeholder': 'nombre@ejemplo.com'  
+    }))
+    
+    password1 = forms.CharField(widget=forms.PasswordInput(attrs={
+        'class': 'form-control', 
+        'placeholder': 'Contraseña'  
+    }))
+    
+    password2 = forms.CharField(widget=forms.PasswordInput(attrs={
+        'class': 'form-control', 
+        'placeholder': 'Confirme su contraseña'  
+    }))
     
     def save(self, commit = True):  
         user = User.objects.create_user(  

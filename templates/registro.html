@@ -1,24 +1,79 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<form class="form" method="POST">
-    {% csrf_token %}
-    
-    <label for="username">Username:</label>
-        {{ form.username }}
-        {{ form.username.errors }}
-    <label for="email">E-mail:</label>
-        {{ form.email }}
-        {{ form.email.errors }}
-    <label for="password1">Contraseña:</label>
-        {{ form.password1 }}
-        {{ form.password1.errors }}
-    <label for="password2">Confirme su Contraseña:</label>
-        {{ form.password2 }}
-        {{ form.password2.errors }}
-
-    <input class="submit-button btn-primary" id="submit" name="submit" type="submit" value="Registrarse">
-    <a href="/login" class="btn btn-primary">¿Ya tienes cuenta?</a>    
+<div class="container-fluid register-container">
+    <div class="register-box">
+      <h2 class="text-center mb-4">Registro</h2>
+      <form class="form" method="POST">
+        {% csrf_token %}
         
-    </form>
+        <!-- Campo de nombre completo -->        
+        <div class="mb-3">
+            <label for="username" class="form-label">Nombre de usuario:</label>
+            {{ form.username }}
+          <!-- <input type="text" class="form-control" id="name" placeholder="Tu nombre" required value="{{ form.username.value }}"> -->
+
+            {{ form.username.errors }}
+        </div>
+
+        <!-- Campo de correo electrónico -->
+        <div class="mb-3">
+            <label for="email" class="form-label">E-mail:</label>
+            {{ form.email }}
+          <!-- <input type="email" class="form-control" id="email" placeholder="nombre@ejemplo.com" required value="{{ form.email.value }}"> -->
+            
+            {{ form.email.errors }}
+        </div>
+
+        <!-- Campo de contraseña -->
+        <div class="mb-3">
+            <label for="password1" class="form-label">Contraseña:</label>
+            {{ form.password1 }}
+          <!-- <input type="password" class="form-control" id="password" placeholder="Contraseña" required value="{{ form.password1.value }}">             -->
+            {{ form.password1.errors }}
+        </div>
+        
+        <!-- Campo de confirmar contraseña -->
+        <div class="mb-3">
+            <label for="password2" class="form-label">Confirme su Contraseña:</label>
+            {{ form.password2 }}
+          <!-- <input type="password" class="form-control" id="confirmPassword" placeholder="Confirmar contraseña" required value="{{ form.password2.value }}"> -->
+
+            {{ form.password2.errors }}
+        </div>
+        
+    
+        <input class="submit-button btn-primary" id="submit" name="submit" type="submit" value="Registrarse">
+        <a href="/login" class="w-100">¿Ya tienes cuenta?</a>    
+            
+        </form>
+    </div>
+</div>
+
+<style>
+    .register-container {
+        height: 100vh; /* Ocupa toda la altura de la pantalla */
+        display: flex;
+        justify-content: center; /* Centra horizontalmente */
+        align-items: center; /* Centra verticalmente */
+        background-color: #1B2D39; /* Color de fondo personalizado */
+        padding-top: 70px; /* Añadir espacio para que el formulario no se superponga con la barra */
+    }
+
+    .register-box {
+        width: 100%;
+        max-width: 400px; /* Limita el ancho máximo del formulario */
+        padding: 20px;
+        border-radius: 10px; /* Bordes redondeados */
+        background-color: #fff; /* Fondo blanco del cuadro de registro */
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); /* Sombra alrededor del cuadro */
+    }
+
+        /* Cambiar el color del texto en el cuadro de registro */
+    .register-box h2,
+    .register-box p {
+        color: #333; /* Color del texto dentro del cuadro */
+    }
+  </style>
+  
 {% endblock content %}

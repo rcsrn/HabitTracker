@@ -26,7 +26,7 @@ def home(request):
 class registro(CreateView):
     model = User
     form_class = CustomUserCreationForm
-    template_name = "register.html"
+    template_name = "registro.html"
 
     def form_valid(self, form):
         '''
