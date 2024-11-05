@@ -9,11 +9,17 @@ from django.views.generic import CreateView
 from django.contrib.auth import login, authenticate
 from django.contrib.auth.models import User
 from django.contrib.auth import logout
+from django.contrib import messages
 
 
 class CustomLoginView(LoginView):
     template_name = 'login.html' 
     form=CustomLoginForm
+    
+    # Si ingresan datos incorrectos, mandamos un mensaje de error
+    def form_invalid(self, form):
+        messages.error(self.request, "Nombre de usuario o contraseña incorrectos.")
+        return super().form_invalid(form)
 
 
 def logout_view(request):

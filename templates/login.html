@@ -5,24 +5,32 @@
 <div class="container-fluid login-container">
     <div class="login-box">
         <h2 class="text-center mb-4">Iniciar Sesión</h2>
-        <form method="post">
+        <form method="post"  action="{% url 'login' %}">
             {% csrf_token %}
-            <!-- Campo de correo -->
+            
+            <!-- Campo de usuario -->
             <div class="mb-3">
                 <label for="username" class="form-label">Nombre de usuario:</label>
-                <!-- <input type="text" class="form-control" name="username" id="username" placeholder="nombre@ejemplo.com" required> -->
-                {{ form.username }}
+                {{ form.username }}               
                 {{ form.username.errors }}
             </div>
 
             <!-- Campo de contraseña -->
             <div class="mb-3">
                 <label for="password" class="form-label">Contraseña:</label>
-                <!-- <input type="password" class="form-control" name="password" id="password" placeholder="Contraseña" required> -->
                 {{ form.password }}
                 {{ form.password.errors }}
             </div>
 
+            <!-- Mensaje de error por si se han ingresado datos incorrectos -->
+            {% if messages %}
+                <div class="alert alert-danger">
+                {% for error in messages %}
+                    <p>{{ error }}</p>
+                </div>
+                {% endfor %}
+            {% endif %}
+            
             <!-- Botón de enviar -->
             <button type="submit" class="btn btn-primary w-100">Iniciar Sesión</button>
 
