@@ -17,11 +17,17 @@ class CustomLoginView(LoginView):
 
 
 def logout_view(request):
-    logout(request)
-    return render(request, 'home.html')
+    if request.method == "POST":
+        logout(request)
+        return render(request, 'home.html')
 
 def home(request):
-    return render(request, 'home.html')
+    if request.user.is_authenticated:
+        usuario = request.user
+        contexto = {'usuario': usuario}
+        return render(request, 'home.html', contexto)
+    else:
+        return render(request, 'home.html')
 
 class registro(CreateView):
     model = User

@@ -5,24 +5,22 @@
 <div class="container-fluid login-container">
     <div class="login-box">
         <h2 class="text-center mb-4">Iniciar Sesión</h2>
-        <form method="post" action="{% url 'login' %}">
+        <form method="post">
             {% csrf_token %}
             <!-- Campo de correo -->
             <div class="mb-3">
-                <label for="username" class="form-label">Correo Electrónico</label>
-                <input type="text" class="form-control" name="username" id="username" placeholder="nombre@ejemplo.com" required>
+                <label for="username" class="form-label">Nombre de usuario:</label>
+                <!-- <input type="text" class="form-control" name="username" id="username" placeholder="nombre@ejemplo.com" required> -->
+                {{ form.username }}
+                {{ form.username.errors }}
             </div>
 
             <!-- Campo de contraseña -->
             <div class="mb-3">
-                <label for="password" class="form-label">Contraseña</label>
-                <input type="password" class="form-control" name="password" id="password" placeholder="Contraseña" required>
-            </div>
-
-            <!-- Checkbox "Recordarme" -->
-            <div class="mb-3 form-check">
-                <input type="checkbox" class="form-check-input" id="remember">
-                <label class="form-check-label" for="remember">Recordarme</label>
+                <label for="password" class="form-label">Contraseña:</label>
+                <!-- <input type="password" class="form-control" name="password" id="password" placeholder="Contraseña" required> -->
+                {{ form.password }}
+                {{ form.password.errors }}
             </div>
 
             <!-- Botón de enviar -->
