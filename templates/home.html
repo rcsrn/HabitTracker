@@ -1,123 +1,165 @@
-
 {% extends 'base.html' %}
 
 {% load static %}
 
 {% block content %}
 
-
     {% if user.is_authenticated %}
 
-    <div class="d-flex flex-column flex-shrink-0 p-3 bg-light" style="width: 280px;">
-    <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
-      <svg class="bi me-2" width="40" height="32"><use xlink:href="#bootstrap"></use></svg>
-      <span class="fs-4">{{ usuario }}</span>
-    </a>
-    <hr>
-    <ul class="nav nav-pills flex-column mb-auto">
-      <li class="nav-item">
-        <a href="#" class="nav-link active" aria-current="page">
-          <svg class="bi me-2" width="16" height="16"><use xlink:href="#home"></use></svg>
-          Inicio
-        </a>
-      </li>
-      <li>
-        <a href="#" class="nav-link link-dark">
-          <svg class="bi me-2" width="16" height="16"><use xlink:href="#speedometer2"></use></svg>
-          Mis habitos
-        </a>
-      </li>
-      <li>
-        <a href="#" class="nav-link link-dark">
-          <svg class="bi me-2" width="16" height="16"><use xlink:href="#table"></use></svg>
-          Estadisticas
-        </a>
-      </li>
-      <li>
-        <a href="#" class="nav-link link-dark">
-          <svg class="bi me-2" width="16" height="16"><use xlink:href="#grid"></use></svg>
-          Comunidad
-        </a>
-      </li>
-      <li>
-        <a href="#" class="nav-link link-dark">
-          <svg class="bi me-2" width="16" height="16"><use xlink:href="#people-circle"></use></svg>
-          Configuración
-        </a>
-      </li>
-      <li>
-        <form action="{% url 'logout' %}" method="post">
-          {% csrf_token %}
-          <button type="submit">Cerrar sesión</button>
-      </form>
-        <!-- <a href="#" class="nav-link link-dark">
-          <svg class="bi me-2" width="16" height="16"><use xlink:href="#table"></use></svg>
-          Cerrar sesión
-        </a> -->
-      </li>
-    </ul>
-    <hr>
-  </div>
+        <!-- Main content layout -->
+        <div class="d-flex">
+
+            <!-- Sidebar -->
+            <div class="d-flex flex-column flex-shrink-0 p-3 bg-light" style="width: 280px;">
+                <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
+                    <svg class="bi me-2" width="40" height="32"><use xlink:href="#bootstrap"></use></svg>
+                    <span class="fs-4">{{ usuario }}</span>
+                </a>
+                <hr>
+                <ul class="nav nav-pills flex-column mb-auto">
+                    <li class="nav-item">
+                        <a href="#" class="nav-link active" aria-current="page">
+                            <svg class="bi me-2" width="16" height="16"><use xlink:href="#home"></use></svg>
+                            Inicio
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="nav-link link-dark">
+                            <svg class="bi me-2" width="16" height="16"><use xlink:href="#speedometer2"></use></svg>
+                            Mis hábitos
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="nav-link link-dark">
+                            <svg class="bi me-2" width="16" height="16"><use xlink:href="#table"></use></svg>
+                            Estadísticas
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="nav-link link-dark">
+                            <svg class="bi me-2" width="16" height="16"><use xlink:href="#grid"></use></svg>
+                            Comunidad
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="nav-link link-dark">
+                            <svg class="bi me-2" width="16" height="16"><use xlink:href="#people-circle"></use></svg>
+                            Configuración
+                        </a>
+                    </li>
+                    <li>
+                        <form action="{% url 'logout' %}" method="post">
+                            {% csrf_token %}
+                            <button type="submit">Cerrar sesión</button>
+                        </form>
+                    </li>
+                </ul>
+                <hr>
+            </div>
+
+            <!-- Main Content (Right Side) -->
+            <div class="container-fluid right">
+                <div class="grid-container">
+                    <div class="grid-item">
+                        <h2>¡Bienvenido de nuevo!</h2>
+                        <p>Comienza a organizar tus hábitos y lleva un registro de tus avances. Aquí encontrarás todo lo que necesitas para optimizar tu vida.</p>
+                    </div>
+                    <div class="grid-item">
+                        <p>En tu página de inicio podrás ver un resumen de tu actividad, acceder a tus hábitos, estadísticas, comunidad y configuraciones.</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
 
     {% else %}
-      
-      
-      <h1 class="text-center mb-4">
-        Habbit Trabbit, tu aplicación de confianza
-    </h1>
-      <div class="container-fluid top">
-        
-          <div class="container-fluid left">
-              
-                
-                <img src="{% static 'dashboard.jpg' %}" alt="" id="main-image">
-            </div>
-            
-            <div class="container-fluid right">
-                <h1>    
-                    Bienvenido a Habit Trabbit
-                </h1>
-                <a href="/login" class="btn btn-primary bienvenida">Iniciar sesión</a>
-                
-                <a href="/registro" class="btn btn-primary bienvenida">Registrarse</a>
-                
+        <!-- Content for non-authenticated users (no changes here) -->
+        <div class="landing-page">
+            <h1 class="text-center mb-4">Bienvenido a Habit Trabbit</h1>
+            <div class="container-fluid top">
+                <div class="container-fluid left">
+                    <img src="{% static 'dashboard.jpg' %}" alt="dashboard image" id="main-image">
+                </div>
+                <div class="container-fluid right">
+                    <h2>Inicia sesión para empezar</h2>
+                    <a href="/login" class="btn btn-primary welcome-btn">Iniciar sesión</a>
+                    <a href="/registro" class="btn btn-secondary welcome-btn">Registrarse</a>
+                </div>
             </div>
         </div>
-      </div>
-      {% endif %}
-      <style>
-        .right{
-            width: 50%;
+    {% endif %}
+
+    <style>
+        /* Existing Styles */
+        .d-flex {
+            display: flex;
+        }
+
+        .right {
+            flex-grow: 1; /* Makes the right section take up the remaining space */
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
+            padding: 20px;
         }
 
-        .left{
-            width: 50%;
+        .left {
+            width: 280px; /* Sidebar width */
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
+            background-color: #f8f9fa;
         }
 
-        .top{
+        .top {
             display: flex;
-            flex-direction: row;
-            align-items: center;
-            justify-content: center;
-        } 
-
-        .bienvenida{
-            width: 50%;
-            margin-top: 0.5rem;
+            align-items: flex-start;
+            justify-content: flex-start;
         }
-
 
         #main-image {
             width: 95%;
         }
-      </style>
 
-      {% endblock content %}
+        /* New Grid Layout for Main Content (Authenticated Users) */
+        .grid-container {
+            display: grid;
+            grid-template-rows: auto auto;
+            gap: 20px;
+            padding: 20px;
+            margin-top: 20px;
+        }
+
+        .grid-item {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Buttons */
+        .welcome-btn {
+            width: 200px;
+            margin-top: 1rem;
+        }
+
+        .landing-page {
+            text-align: center;
+            padding: 40px;
+        }
+
+        /* Responsive design tweaks */
+        @media (max-width: 768px) {
+            .d-flex {
+                flex-direction: column; /* Stack sidebar and content on smaller screens */
+            }
+
+            .left, .right {
+                width: 100%;
+            }
+        }
+    </style>
+
+{% endblock content %}
