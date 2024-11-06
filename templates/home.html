@@ -95,33 +95,37 @@
             display: flex;
         }
 
-        .right {
-            flex-grow: 1; /* Makes the right section take up the remaining space */
+        .right{
+            width: 50%;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            padding: 20px;
         }
 
-        .left {
-            width: 280px; /* Sidebar width */
+        .left{
+            width: 50%;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            background-color: #f8f9fa;
         }
 
-        .top {
+        .top{
             display: flex;
-            align-items: flex-start;
-            justify-content: flex-start;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+        } 
+
+        .bienvenida{
+            width: 50%;
+            margin-top: 0.5rem;
         }
+
 
         #main-image {
             width: 95%;
-        }
 
         /* New Grid Layout for Main Content (Authenticated Users) */
         .grid-container {
