@@ -75,6 +75,99 @@
                     <div class="grid-item">
                         <p>En tu página de inicio podrás ver un resumen de tu actividad, acceder a tus hábitos, estadísticas, comunidad y configuraciones.</p>
                     </div>
+
+                    <div class="grid-item">
+                        <h2>Lista de habitos del día</h2>
+                            <ul class="list-group">
+                                <!-- Ejemplo de ítem de lista -->
+                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                    <span><i class="fas fa-check-circle me-2 text-primary"></i> Caminar 2 kilometros</span>
+                                    <input type="checkbox">
+                                </li>
+                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                    <span><i class="fas fa-check-circle me-2 text-primary"></i> Tomar 2 litros de agua</span>
+                                    <input type="checkbox">
+                                </li>
+                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                    <span><i class="fas fa-check-circle me-2 text-primary"></i> Estudiar 3 horas al día</span>
+                                    <input type="checkbox">
+                                </li>
+                                <!-- Agregar más ítems según sea necesario -->
+                            </ul>
+                        </div>
+
+                    </div>
+
+                    <div class="grid-item">
+
+                            <h3 class="mb-4">Calendario - Noviembre 2023</h3>
+                            <table class="table table-bordered calendar text-center">
+                                <thead class="table-primary">
+                                    <tr>
+                                        <th>Dom</th>
+                                        <th>Lun</th>
+                                        <th>Mar</th>
+                                        <th>Mié</th>
+                                        <th>Jue</th>
+                                        <th>Vie</th>
+                                        <th>Sáb</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <!-- Fila 1 -->
+                                    <tr>
+                                        <td></td> <!-- Celdas vacías para días no utilizados -->
+                                        <td>1</td>
+                                        <td>2</td>
+                                        <td>3</td>
+                                        <td>4</td>
+                                        <td>5</td>
+                                        <td>6</td>
+                                    </tr>
+                                    <!-- Fila 2 -->
+                                    <tr>
+                                        <td>7</td>
+                                        <td>8</td>
+                                        <td>9</td>
+                                        <td>10</td>
+                                        <td>11</td>
+                                        <td>12</td>
+                                        <td>13</td>
+                                    </tr>
+                                    <!-- Fila 3 -->
+                                    <tr>
+                                        <td>14</td>
+                                        <td>15</td>
+                                        <td>16</td>
+                                        <td>17</td>
+                                        <td>18</td>
+                                        <td>19</td>
+                                        <td>20</td>
+                                    </tr>
+                                    <!-- Fila 4 -->
+                                    <tr>
+                                        <td>21</td>
+                                        <td>22</td>
+                                        <td>23</td>
+                                        <td>24</td>
+                                        <td>25</td>
+                                        <td>26</td>
+                                        <td>27</td>
+                                    </tr>
+                                    <!-- Fila 5 -->
+                                    <tr>
+                                        <td>28</td>
+                                        <td>29</td>
+                                        <td>30</td>
+                                        <td class="bg-light"></td>
+                                        <td class="bg-light"></td>
+                                        <td class="bg-light"></td>
+                                        <td class="bg-light"></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                    </div>
                 </div>
             </div>
 
@@ -104,6 +197,9 @@
     {% endif %}
 
     <style>
+        .body{
+            background-color: #1B2D39;
+        }
         /* Existing Styles */
         .d-flex {
             display: flex;
