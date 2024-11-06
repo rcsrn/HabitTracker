@@ -73,20 +73,29 @@
         </div>
 
     {% else %}
-        <!-- Content for non-authenticated users (no changes here) -->
-        <div class="landing-page">
-            <h1 class="text-center mb-4">Bienvenido a Habit Trabbit</h1>
-            <div class="container-fluid top">
-                <div class="container-fluid left">
-                    <img src="{% static 'dashboard.jpg' %}" alt="dashboard image" id="main-image">
-                </div>
-                <div class="container-fluid right">
-                    <h2>Inicia sesión para empezar</h2>
-                    <a href="/login" class="btn btn-primary welcome-btn">Iniciar sesión</a>
-                    <a href="/registro" class="btn btn-secondary welcome-btn">Registrarse</a>
-                </div>
+ 
+    <h1 class="text-center mb-4">
+        Habbit Trabbit, tu aplicación de confianza
+    </h1>
+      <div class="container-fluid top">
+        
+          <div class="container-fluid left">
+              
+                
+                <img src="{% static 'dashboard.jpg' %}" alt="" id="main-image">
+            </div>
+            
+            <div class="container-fluid right">
+                <h1>    
+                    Bienvenido a Habit Trabbit
+                </h1>
+                <a href="/login" class="btn btn-primary bienvenida">Iniciar sesión</a>
+                
+                <a href="/registro" class="btn btn-primary bienvenida">Registrarse</a>
+                
             </div>
         </div>
+      </div>
     {% endif %}
 
     <style>
