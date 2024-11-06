@@ -60,10 +60,18 @@
             <!-- Main Content (Right Side) -->
             <div class="container-fluid right">
                 <div class="grid-container">
+                    <!-- First Grid Item with Chart -->
                     <div class="grid-item">
                         <h2>¡Bienvenido de nuevo!</h2>
                         <p>Comienza a organizar tus hábitos y lleva un registro de tus avances. Aquí encontrarás todo lo que necesitas para optimizar tu vida.</p>
+
+                        <!-- Chart (Example) -->
+                        <div class="chart-container">
+                            <canvas id="habitChart"></canvas>
+                        </div>
                     </div>
+
+                    <!-- Second Grid Item -->
                     <div class="grid-item">
                         <p>En tu página de inicio podrás ver un resumen de tu actividad, acceder a tus hábitos, estadísticas, comunidad y configuraciones.</p>
                     </div>
@@ -77,25 +85,22 @@
     <h1 class="text-center mb-4">
         Habbit Trabbit, tu aplicación de confianza
     </h1>
-      <div class="container-fluid top">
+    <div class="container-fluid top">
         
-          <div class="container-fluid left">
-              
+        <div class="container-fluid left">
                 
-                <img src="{% static 'dashboard.jpg' %}" alt="" id="main-image">
-            </div>
-            
-            <div class="container-fluid right">
-                <h1>    
-                    Bienvenido a Habit Trabbit
-                </h1>
-                <a href="/login" class="btn btn-primary bienvenida">Iniciar sesión</a>
-                
-                <a href="/registro" class="btn btn-primary bienvenida">Registrarse</a>
-                
-            </div>
+            <img src="{% static 'dashboard.jpg' %}" alt="" id="main-image">
         </div>
-      </div>
+        
+        <div class="container-fluid right">
+            <h1>    
+                Bienvenido a Habit Trabbit
+            </h1>
+            <a href="/login" class="btn btn-primary bienvenida">Iniciar sesión</a>
+            <a href="/registro" class="btn btn-primary bienvenida">Registrarse</a>
+        </div>
+    </div>
+    </div>
     {% endif %}
 
     <style>
@@ -104,7 +109,7 @@
             display: flex;
         }
 
-        .right{
+        .right {
             width: 50%;
             display: flex;
             flex-direction: column;
@@ -112,7 +117,7 @@
             align-items: center;
         }
 
-        .left{
+        .left {
             width: 50%;
             display: flex;
             flex-direction: column;
@@ -120,21 +125,21 @@
             align-items: center;
         }
 
-        .top{
+        .top {
             display: flex;
             flex-direction: row;
             align-items: center;
             justify-content: center;
-        } 
+        }
 
-        .bienvenida{
+        .bienvenida {
             width: 50%;
             margin-top: 0.5rem;
         }
 
-
         #main-image {
             width: 95%;
+        }
 
         /* New Grid Layout for Main Content (Authenticated Users) */
         .grid-container {
@@ -150,6 +155,13 @@
             padding: 20px;
             border-radius: 8px;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Chart Container */
+        .chart-container {
+            width: 100%;
+            height: 300px;
+            margin-top: 20px;
         }
 
         /* Buttons */
@@ -174,5 +186,33 @@
             }
         }
     </style>
+
+    <!-- Chart.js Library -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        // Example Chart.js code
+        const ctx = document.getElementById('habitChart').getContext('2d');
+        const habitChart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: ['Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado', 'Domingo'],
+                datasets: [{
+                    label: 'Progreso de hábitos',
+                    data: [12, 19, 3, 5, 2, 3, 10],
+                    borderColor: 'rgba(75, 192, 192, 1)',
+                    borderWidth: 2,
+                    fill: false
+                }]
+            },
+            options: {
+                responsive: true,
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+    </script>
 
 {% endblock content %}
