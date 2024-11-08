@@ -1,0 +1,83 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+<div class="d-flex">
+    {% include 'sidebar.html' %}
+
+    <div class="container-fluid right">
+        <div class="grid-container">    
+            <div class="grid-item">
+
+<div class="container mt-4">
+
+    <div class="row">
+
+        <!-- Imagen del Cliente -->
+        <div class="col-md-4">
+            <div class="card text-center">
+                <img src="https://vectorified.com/images/user-picture-icon-10.png" alt="Foto de cliente" class="img-thumbnail customer-image">
+                <div class="edit-customer-image">
+                    <label for="uploadImage" class="cursor-pointer">
+                        <input type="file" id="uploadImage" style="display:none">
+                        <button class="ph ph-note-pencil icon-text-button">Editar imagen</button> 
+                    </label>
+                </div>
+            </div>
+        </div>
+
+        <!-- Datos del Cliente -->
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-body">
+                    <h4>Hola, {{ usuario.username }}</h4>
+                    <table class="table">
+                        <tbody>
+                            <tr><th>Nombre de usuario</th><td>{{ usuario.username }}</td></tr>
+                            <tr><th>Correo Electrónico</th><td>{{ usuario.email }}</td></tr>
+                            <tr><th>Nombre</th><td>{{ usuario.first_name }}</td></tr>
+                            <tr><th>Apellido</th><td>{{ usuario.last_name }}</td></tr>
+                            <tr><th>Contraseña</th><td>*****</td></tr>
+
+                    </table>
+                    <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#editCustomerModal">
+                        <i class="ph ph-note-pencil"></i> Editar
+                    </button>                    
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal para Editar Cliente -->
+<div class="modal fade" id="editCustomerModal" tabindex="-1" aria-labelledby="editCustomerModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="editCustomerModalLabel">Editar Cliente</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form action="" method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    {{ form.as_p }}
+                    <div class="form-button">
+                        <button type="submit" class="btn btn-primary">Guardar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<style>
+
+    body{
+                background-color: #1B2D39;
+            }
+</style>
+{% endblock content %}
