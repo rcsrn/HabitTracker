@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+
+<div class="d-flex">
+    {% include 'sidebar.html' %}
+
+    <div class="container-fluid right">
+        <div class="grid-container">    
+<div class="grid-item">
+    <p>Comienza a organizar tus hábitos y lleva un registro de tus avances. Aquí encontrarás todo lo que necesitas para optimizar tu vida.</p>
+
+    <!-- Chart (Example) -->
+    <div class="chart-container">
+        <canvas id="habitChart"></canvas>
+    </div>
+
+</div>
+</div>
+</div>
+</div>
+<style>
+
+    body{
+                background-color: #1B2D39;
+            }
+</style>
+{% endblock content %}
