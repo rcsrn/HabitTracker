@@ -58,3 +58,27 @@ class registro(CreateView):
         usuario = authenticate(username=usuario,password=password)
         login(self.request, usuario)
         return redirect('/')
+
+def estadistica(request):
+    if request.user.is_authenticated:
+        usuario = request.user
+        contexto = {'usuario': usuario}
+        return render(request, 'estadisticas.html', contexto)
+    else:
+     return render(request, 'home.html')
+    
+def comunidad(request):
+    if request.user.is_authenticated:
+        usuario = request.user
+        contexto = {'usuario': usuario}
+        return render(request, 'comunidad.html', contexto)
+    else:
+        return render(request, 'home.html')
+
+def config(request):
+    if request.user.is_authenticated:
+        usuario = request.user
+        contexto = {'usuario': usuario}
+        return render(request, 'configuracion.html', contexto)
+    else:
+        return render(request, 'home.html')
