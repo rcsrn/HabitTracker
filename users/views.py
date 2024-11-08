@@ -66,3 +66,11 @@ def estadistica(request):
         return render(request, 'estadisticas.html', contexto)
     else:
      return render(request, 'home.html')
+    
+def comunidad(request):
+    if request.user.is_authenticated:
+        usuario = request.user
+        contexto = {'usuario': usuario}
+        return render(request, 'comunidad.html', contexto)
+    else:
+        return render(request, 'home.html')

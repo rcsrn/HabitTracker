@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+<div class="d-flex">
+    {% include 'sidebar.html' %}
+    <div class="container-fluid right">
+        <div class="grid-container">
+            <div class="grid-item">
+                <p>Conéctate con otros usuarios y comparte tu progreso.</p>
+                <h3>Miembros Activos</h3>
+                <ul class="list-group">
+                    <li class="list-group-item">Usuario 1</li>
+                    <li class="list-group-item">Usuario 2</li>
+                    <li class="list-group-item">Usuario 3</li>
+                    <li class="list-group-item">Usuario 4</li>
+                    <li class="list-group-item">Usuario 5</li>
+                </ul>
+                <h3>Publicaciones Recientes</h3>
+                <div class="post">
+                    <h4>Título de la Publicación 1</h4>
+                    <p>Contenido de la publicación 1...</p>
+                </div>
+                <div class="post">
+                    <h4>Título de la Publicación 2</h4>
+                    <p>Contenido de la publicación 2...</p>
+                </div>
+                <div class="post">
+                    <h4>Título de la Publicación 3</h4>
+                    <p>Contenido de la publicación 3...</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    body {
+        background-color: #1B2D39;
+    }
+    .post {
+        margin-bottom: 20px;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        background-color: #ffffff;
+    }
+    .post h4 {
+        margin: 0;
+        font-size: 1.2em;
+        color: #333;
+    }
+    .post p {
+        margin: 5px 0 0;
+        color: #666;
+    }
+    .list-group-item {
+        background-color: #2B3E50;
+        color: #ffffff;
+        border: none;
+    }
+</style>
+{% endblock content %}
