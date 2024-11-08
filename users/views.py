@@ -36,7 +36,12 @@ def home(request):
         return render(request, 'home.html')
 
 def habito(request):
-     return render(request, 'habito.html')
+    if request.user.is_authenticated:
+        usuario = request.user
+        contexto = {'usuario': usuario}
+        return render(request, 'habito.html', contexto)
+    else:
+     return render(request, 'home.html')
 
 class registro(CreateView):
     model = User
