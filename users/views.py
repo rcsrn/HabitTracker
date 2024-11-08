@@ -35,6 +35,9 @@ def home(request):
     else:
         return render(request, 'home.html')
 
+def habito(request):
+     return render(request, 'habito.html')
+
 class registro(CreateView):
     model = User
     form_class = CustomUserCreationForm

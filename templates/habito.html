@@ -1,0 +1,123 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+
+<div class="d-flex">
+{% include 'sidebar.html' %}
+
+    <div class="container-fluid right">
+        <div class="grid-container">    
+<div class="grid-item">
+    <h2>Lista de habitos del día</h2>
+        <ul class="list-group">
+            <!-- Ejemplo de ítem de lista -->
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+                <span><i class="fas fa-check-circle me-2 text-primary"></i> Caminar 2 kilometros</span>
+                <input type="checkbox">
+            </li>
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+                <span><i class="fas fa-check-circle me-2 text-primary"></i> Tomar 2 litros de agua</span>
+                <input type="checkbox">
+            </li>
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+                <span><i class="fas fa-check-circle me-2 text-primary"></i> Estudiar 3 horas al día</span>
+                <input type="checkbox">
+            </li>
+        </ul>
+    </div>
+
+</div>
+</div>
+</div>
+</div>
+
+<style>
+
+    /* Existing Styles */
+    .d-flex {
+        display: flex;
+    }
+
+    .right {
+        width: 50%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .left {
+        width: 50%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .top {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .bienvenida {
+        width: 50%;
+        margin-top: 0.5rem;
+    }
+
+    #main-image {
+        width: 95%;
+    }
+
+    /* New Grid Layout for Main Content (Authenticated Users) */
+    .grid-container {
+        display: grid;
+        grid-template-rows: auto auto;
+        gap: 20px;
+        padding: 20px;
+        margin-top: 20px;
+    }
+
+    .grid-item {
+        background: #f8f9fa;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Chart Container */
+    .chart-container {
+        width: 100%;
+        height: 300px;
+        margin-top: 20px;
+    }
+
+    /* Buttons */
+    .welcome-btn {
+        width: 200px;
+        margin-top: 1rem;
+    }
+
+    .landing-page {
+        text-align: center;
+        padding: 40px;
+    }
+
+    /* Responsive design tweaks */
+    @media (max-width: 768px) {
+        .d-flex {
+            flex-direction: column; /* Stack sidebar and content on smaller screens */
+        }
+
+        .left, .right {
+            width: 100%;
+        }
+    }
+    body{
+                background-color: #1B2D39;
+            }
+</style>
+{% endblock content %}
